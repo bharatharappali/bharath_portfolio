@@ -384,8 +384,8 @@ project.carousel.forEach((item) => {
     const img = document.createElement('img');
     img.src = item.url;
     img.alt = item.alt;
-    img.style.width = '100%';
-    img.style.height = 'auto';
+    img.style.width = 'auto';
+    img.style.height = '100%';
     scrollItem.appendChild(img);
   } else if (item.type === 'video') {
     const video = document.createElement('video');
@@ -451,9 +451,11 @@ scrollContainer.scrollTo({
                 const additionalInfoDiv = document.createElement('div');
                 additionalInfoDiv.className = 'additional-info col-md-6';
                 additionalInfoDiv.innerHTML = `
-                  <p class="project-type" style="font-weight: bold;">[Type: ${project.projectType}]</p>
-                  <p class="collab" style="font-weight: bold;">[Collaboration: ${project.collab}]</p>
-                  <p class="client-status" style="font-weight: bold;">[Status: ${project.clientStatus}]</p>
+                  <p class="project-type">[Type: ${project.projectType}]</p>
+                  <p class="collab">[Collaboration: ${project.collab}]</p>
+                  <p class="client-status">[Status: ${project.clientStatus}]</p>
+                  ${project.brandStrategy?`<p class="Brand Strategy">[Brand Strategy: ${project.brandStrategy?project.brandStrategy:'NA'}]</p>`:""}
+                  
                 `;
           
                 expandableDiv.appendChild(descriptionDiv);
