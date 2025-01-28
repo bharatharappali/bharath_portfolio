@@ -23,22 +23,29 @@ function copyEmailAndOpen() {
     }, 2000);
   }).catch((err) => console.error("Failed to copy email:", err));
 }
-document.addEventListener("DOMContentLoaded", function () {
-  const bioSection = document.getElementById("bioSection");
-  const workSection = document.getElementById("work");
 
-  function toggleBioSection() {
-    if (window.innerWidth > 576) {
-      bioSection.style.display = "none";
-    }
-  }
+function mailto() {
+  const email = "bharatharappali@gmail.com";
+  navigator.clipboard.writeText(email).then(() => {
+        window.location.href = `mailto:${email}`;
+      }).catch((err) => console.error("Failed to Redirect email:", err));
+}
+// document.addEventListener("DOMContentLoaded", function () {
+//   const bioSection = document.getElementById("bioSection");
+//   const workSection = document.getElementById("work");
 
-  // Run on initial load
-  toggleBioSection();
+//   function toggleBioSection() {
+//     if (window.innerWidth > 576) {
+//       bioSection.style.display = "none";
+//     }
+//   }
 
-  // Run on window resize
-  window.addEventListener("resize", toggleBioSection);
-});
+//   // Run on initial load
+//   toggleBioSection();
+
+//   // Run on window resize
+//   window.addEventListener("resize", toggleBioSection);
+// });
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -59,9 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
           console.error('Target section not found:', target);
         }
 
-        document.querySelectorAll('.nav-link').forEach(navLink => navLink.classList.remove('active'));
+        document.querySelectorAll('.nav-link').forEach(navLink => {navLink.classList.remove('active');navLink.style.opacity = '0.5';});
 
         this.classList.add('active');
+        this.style.opacity = '1';
       }
     });
   });
@@ -123,11 +131,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentIndex = 0;
 
     const textSection = document.createElement('div');
-    textSection.className = 'text-section align-items-center mb-3 pb-2';
+    textSection.className = 'text-section';
     textSection.textContent = 'An ensemble of my best works, explorations, WIPs and more...';
-
-    exp.insertBefore(textSection, exp.firstChild);
-    
+    textSection.style.borderBottom = '1px solid black'; 
+    // exp.appendChild(textSection)   
+    exp.insertBefore(textSection, exp.firstChild); 
     data.forEach((item, index) => {
       let mediaElement;
       if (item.type === 'image') {
@@ -137,9 +145,10 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if (item.type === 'video') {
         mediaElement = document.createElement('video');
         mediaElement.src = item.url;
-        mediaElement.controls = true;
         mediaElement.loop = true;
         mediaElement.autoplay = true;
+        mediaElement.controls = false;
+        mediaElement.muted = true;
         mediaElement.setAttribute('preload', 'auto');
         mediaElement.setAttribute('playsinline', '');
         mediaElement.setAttribute('webkit-playsinline', '');
@@ -372,49 +381,62 @@ document.addEventListener('DOMContentLoaded', function () {
                 // });
 
                 // Create the scrollable container
-const scrollContainer = document.createElement('div');
-scrollContainer.className = 'scroll-container';
+                const lightbox = document.getElementById('lightbox');
+                const lightboxMedia = document.getElementById('lightboxMedia');
+                const lightboxFooter = document.getElementById('lightboxFooter');
+                const prevArrow = document.getElementById('prevArrow');
+                const nextArrow = document.getElementById('nextArrow');
+                let currentIndex = 0;
+                const scrollContainer = document.createElement('div');
+                  scrollContainer.className = 'scroll-container';
 
-// Add items to the scrollable container
-project.carousel.forEach((item) => {
-  const scrollItem = document.createElement('div');
-  scrollItem.className = 'scroll-item';
+                  // Add items to the scrollable container
+                  project.carousel.forEach((item,index) => {
+                    const scrollItem = document.createElement('div');
+                    scrollItem.className = 'scroll-item';
+                    
+                    let mediaEle;
+                    if (item.type === 'image') {
+                      // const img = document.createElement('img');
+                      mediaEle = document.createElement('img');
+                      mediaEle.src = item.url;
+                      mediaEle.alt = item.alt;
+                      mediaEle.style.width = 'auto';
+                      mediaEle.style.height = '100%';
+                      // scrollItem.appendChild(img);
+                    } else if (item.type === 'video') {
+                      // const video = document.createElement('video');
+                      mediaEle = document.createElement('video');
+                      mediaEle.autoplay = true;
+                      mediaEle.loop = true;
+                      mediaEle.controls = false;
+                      mediaEle.muted = true;
+                      mediaEle.setAttribute('playsinline', '');
+                      mediaEle.setAttribute('webkit-playsinline', '');
 
-  if (item.type === 'image') {
-    const img = document.createElement('img');
-    img.src = item.url;
-    img.alt = item.alt;
-    img.style.width = 'auto';
-    img.style.height = '100%';
-    scrollItem.appendChild(img);
-  } else if (item.type === 'video') {
-    const video = document.createElement('video');
-    video.controls = true;
-    video.loop = true;
-    video.autoplay = true;
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
+                      const sourceMp4 = document.createElement('source');
+                      sourceMp4.src = item.url;
+                      video.appendChild(sourceMp4);
 
-    const sourceMp4 = document.createElement('source');
-    sourceMp4.src = item.url;
-    video.appendChild(sourceMp4);
+                      const fallbackText = document.createTextNode('Your browser does not support the video tag.');
+                      video.appendChild(fallbackText);
 
-    const fallbackText = document.createTextNode('Your browser does not support the video tag.');
-    video.appendChild(fallbackText);
+                      // scrollItem.appendChild(video);
+                    }
+                    scrollItem.appendChild(mediaEle);
 
-    scrollItem.appendChild(video);
-  }
+                   
+                    scrollContainer.appendChild(scrollItem);
+                  });
+                  projectDiv.appendChild(scrollContainer);
+                  
 
-  scrollContainer.appendChild(scrollItem);
-});
+                  scrollContainer.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                  });
 
-// Append the scrollable container to the parent element
-projectDiv.appendChild(scrollContainer);
 
-scrollContainer.scrollTo({
-  left: 0,
-  behavior: 'smooth'
-});
           
                 // Project Details
                 const detailsDiv = document.createElement('div');
@@ -435,11 +457,12 @@ scrollContainer.scrollTo({
                 moreInfoButton.innerHTML = 'More Info <span style="font-size: 8px;">▼</span>';
                 moreInfoButton.style.border = 'none';
                 moreInfoButton.style.background = 'none'; 
-                moreInfoButton.style.color = 'black';
+                moreInfoButton.style.color = 'inherit';
                 moreInfoButton.style.cursor = 'pointer';
+                moreInfoButton.style.fontSize = '1.39rem';
           
                 const expandableDiv = document.createElement('div');
-                expandableDiv.className = 'expandable-info row mt-3';
+                expandableDiv.className = 'expandable-info row mt-3 pt-5';
                 expandableDiv.style.display = 'none';
                 expandableDiv.style.transition = 'max-height 0.5s ease, opacity 0.5s ease';
                 expandableDiv.style.overflow = 'hidden';
@@ -469,6 +492,7 @@ scrollContainer.scrollTo({
                 showLessButton.style.color = 'black';
                 showLessButton.style.cursor = 'pointer';
                 showLessButton.style.display = 'none';
+                showLessButton.style.fontSize = '1.39rem';
           
                 moreInfoButton.addEventListener('click', () => {
                   expandableDiv.style.display = 'flex';
@@ -511,9 +535,6 @@ scrollContainer.scrollTo({
 });
 
 
-
-
-// Define currentIndex at the beginning of your script
 let currentIndex = 0;
 
 function changeColors() {
@@ -535,9 +556,13 @@ function changeColors() {
       const navLink = document.querySelectorAll('.link');
       const filterSection = document.querySelectorAll('.filter-section');
       const textSection = document.querySelectorAll('.text-section');
+      const projectSection = document.querySelectorAll('.project');
+      const bioSection = document.querySelectorAll('.bio__1');
+      const bio_Section = document.querySelectorAll('.bio_sec--3, .bio_sec--4');
       tabButtons.forEach(a => {
         a.style.backgroundColor = currentColor['bg-color'];
         a.style.color = currentColor['body-color'];
+        a.style.borderBottom = `1px solid ${currentColor['body-color']}`;
         console.log('Updated tab button color:', a.style.color);
         // a.offsetHeight;
       });
@@ -556,17 +581,35 @@ function changeColors() {
       filterSection.forEach(a => {
         a.style.backgroundColor = currentColor['bg-color'];
         a.style.color = currentColor['body-color'];
+        a.style.borderBottom = `1px solid ${currentColor['body-color']}`;
         console.log('Updated tab button color:', a.style.color);
         a.offsetHeight;
       });
       textSection.forEach(a => {
         a.style.backgroundColor = currentColor['bg-color'];
         a.style.color = currentColor['body-color'];
+        a.style.borderBottom = `1px solid ${currentColor['body-color']}`;
         console.log('Updated tab button color:', a.style.color);
         a.offsetHeight;
       });
+      projectSection.forEach(a => {
+        a.style.backgroundColor = currentColor['bg-color'];
+        a.style.color = currentColor['body-color'];
+        a.style.borderBottom = `1px solid ${currentColor['body-color']}`;
+  
+        a.offsetHeight;
+      });
+      bioSection.forEach(a => {
+        a.style.borderBottom = `1px solid ${currentColor['body-color']}`;
+  
+        a.offsetHeight;
+      });
+      bio_Section.forEach(a => {
+        a.style.borderTop = `1px solid ${currentColor['body-color']}`;
+  
+        a.offsetHeight;
+      });
 
-      // increment the current index
       currentIndex = (currentIndex + 1) % colorData.colors.length;
     })
     .catch(error => {
