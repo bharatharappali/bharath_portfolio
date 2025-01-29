@@ -420,10 +420,10 @@ width: 100%;
 } */
 
 
-.scroll-container:hover .scroll-item:not(:hover) {
+/* .scroll-container:hover .scroll-item:not(:hover) {
   transform: scale(0.9); 
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
+} */
 
 @media (max-width: 768px) {
   .scroll-container {

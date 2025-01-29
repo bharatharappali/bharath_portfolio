@@ -1,6 +1,27 @@
 {
   "projects": [
     {
+      "title": "Uniwold Logistics",
+      "subTitle": "Visual Identity Revamp for one of Asia’s largest independent providers of freight and supply chain solutions.",
+      "description": "For Uniworld Logistics, communicating the legacy of two decades was as important as their foray into the future. The brand exercise and its visual extension capture the essence of the legacy meeting the future seamlessly.<br><br>The new visual imagery is inspired by the core story of 'United, We Move' with a bold color palette inspired by the modes of transportation. The design system consists of vertical and horizontal traingles , derived from the W of the logo mark, signifying movement and solutions in every aspects of Logistics.",
+      "projectType": "Visual identity design",
+      "collab": "Studio Most, Milan, Italy",
+      "brandStrategy": "Hasita, Mahesh",
+      "profileLink": "https://www.linkedin.com/in/bharath-arappali-4b0145136/",
+      "clientStatus": "Refoundry, Design Proposal",
+      "carousel": [
+        { "type": "image", "url": "images/refoundry/rf--master.webp", "alt": "Image description 2" },
+          { "type": "image", "url": "images/refoundry/rf--1.webp", "alt": "Image description 1" },
+          { "type": "image", "url": "images/refoundry/rf--2.webp", "alt": "Image description 2" },
+          { "type": "image", "url": "md-img/tt-11.jpg", "alt": "Image description 2" },
+          { "type": "image", "url": "md-img/mw-s--4.webp", "alt": "Image description 2" },
+          { "type": "image", "url": "images/refoundry/rf--3.webp", "alt": "Image description 3" },
+          { "type": "image", "url": "images/refoundry/rf--4.webp", "alt": "Image description 4" },
+          { "type": "image", "url": "images/refoundry/rf--5.webp", "alt": "Image description 5" },
+          { "type": "image", "url": "images/refoundry/rf--6.webp", "alt": "Image description 6" }
+      ]
+    },
+    {
       "title": "Refoundry",
       "subTitle": "Contemporary & modern visual identity for a tech platform",
       "description": "Refoundry is a unique Italian platform that brings together young, talented professionals and small to medium-sized businesses (SMEs) looking for new leadership. The platform aims to preserve business legacies while injecting new energy and expertise into the acquired SMEs. It's an exciting opportunity for both young talent seeking new challenges and founders and owners of SMEs looking to secure their legacy. <br> <br>The concept of the visual Identity stems from the intergenerational exchange that the platform strives to achieve. Wave diffraction was chosen as a metaphor for depicting the concept, which is reflected in the logomark and the visual imagery.",
