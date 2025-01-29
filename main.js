@@ -1,3 +1,5 @@
+"use strict";
+
 // function copyEmailAndOpen() {
 //   const email = "bharatharappali@gmail.com";
 //   navigator.clipboard.writeText(email).then(() => {
@@ -380,17 +382,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 //   indicatorsDiv.appendChild(indicatorButton);
                 // });
 
+                const prevButton = document.createElement('button');
+                prevButton.innerText = '❮';
+                prevButton.className = 'scroll-button prev';
+                
+
+                const nextButton = document.createElement('button');
+                nextButton.innerText = '❯';
+                nextButton.className = 'scroll-button next';
+              
+
                 // Create the scrollable container
-                const lightbox = document.getElementById('lightbox');
-                const lightboxMedia = document.getElementById('lightboxMedia');
-                const lightboxFooter = document.getElementById('lightboxFooter');
-                const prevArrow = document.getElementById('prevArrow');
-                const nextArrow = document.getElementById('nextArrow');
-                let currentIndex = 0;
                 const scrollContainer = document.createElement('div');
                   scrollContainer.className = 'scroll-container';
-
-                  // Add items to the scrollable container
+                  
                   project.carousel.forEach((item,index) => {
                     const scrollItem = document.createElement('div');
                     scrollItem.className = 'scroll-item';
@@ -428,7 +433,25 @@ document.addEventListener('DOMContentLoaded', function () {
                    
                     scrollContainer.appendChild(scrollItem);
                   });
-                  projectDiv.appendChild(scrollContainer);
+
+                  prevButton.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: -300, 
+                        behavior: 'smooth'
+                    });
+                });
+                
+                nextButton.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                });
+                projectDiv.style.position = 'relative';
+                projectDiv.appendChild(prevButton);
+                projectDiv.appendChild(scrollContainer);
+                projectDiv.appendChild(nextButton);
+                  
                   
 
                   scrollContainer.scrollTo({
@@ -470,6 +493,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const descriptionDiv = document.createElement('div');
                 descriptionDiv.className = 'description-info col-md-6';
                 descriptionDiv.innerHTML = `<p>${project.description}</p>`;
+                descriptionDiv.style.fontSize = '1.39rem';
           
                 const additionalInfoDiv = document.createElement('div');
                 additionalInfoDiv.className = 'additional-info col-md-6';
@@ -489,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 showLessButton.innerHTML = 'Show Less <span style="font-size: 8px;">▲</span>';
                 showLessButton.style.border = 'none'; 
                 showLessButton.style.background = 'none'; 
-                showLessButton.style.color = 'black';
+                showLessButton.style.color = 'inherit';
                 showLessButton.style.cursor = 'pointer';
                 showLessButton.style.display = 'none';
                 showLessButton.style.fontSize = '1.39rem';
