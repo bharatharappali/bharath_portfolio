@@ -168,6 +168,7 @@ width: 100%;
   margin: 0;
   width: 74%;
   border-bottom: 1px solid #333;
+  display: none !important;
 }
 
 .filter-chip{
@@ -328,6 +329,11 @@ width: 100%;
   scroll-behavior: smooth !important;
  }
 
+ .scroll-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .scroll-container {
   display: flex;
   align-items: center;
@@ -375,8 +381,8 @@ width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-60%);
-  width: 50px; 
-  height: 100%; 
+  width: 50px;
+  height: 100%;
   background: transparent;
   border: none;
   color: inherit;
@@ -388,7 +394,7 @@ width: 100%;
   z-index: 10;
 }
 
-.scroll-button.prev {
+ .scroll-button.prev {
   left: 0;
 }
 
@@ -763,10 +769,7 @@ width: 100%;
     transform: translateY(30%);
   }
   .filter-section{
-    transform: translateY(70%);
-    font-size: 65%;
-    overflow-x: auto;
-    width: 100% !important; 
+    display: none !important;
   }
   .carousel{
     margin-top: calc(10rem);
@@ -799,6 +802,10 @@ width: 100%;
     border-radius: 1px;
     height:100%;
     object-fit: cover;
+  }
+
+  .scroll-button{
+    display: none !important;
   }
   
   /* .color-btn{

@@ -382,6 +382,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 //   indicatorsDiv.appendChild(indicatorButton);
                 // });
 
+                const scrollWrapper = document.createElement('div');
+                scrollWrapper.className = 'scroll-wrapper';
+                scrollWrapper.style.position = 'relative'; 
+
                 const prevButton = document.createElement('button');
                 prevButton.innerText = '❮';
                 prevButton.className = 'scroll-button prev';
@@ -395,6 +399,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Create the scrollable container
                 const scrollContainer = document.createElement('div');
                   scrollContainer.className = 'scroll-container';
+
+                  
+                 
                   
                   project.carousel.forEach((item,index) => {
                     const scrollItem = document.createElement('div');
@@ -448,9 +455,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 });
                 projectDiv.style.position = 'relative';
-                projectDiv.appendChild(prevButton);
-                projectDiv.appendChild(scrollContainer);
-                projectDiv.appendChild(nextButton);
+                // projectDiv.appendChild(prevButton);
+                // projectDiv.appendChild(nextButton);
+                // projectDiv.appendChild(scrollContainer);
+
+                scrollWrapper.appendChild(prevButton);
+                scrollWrapper.appendChild(scrollContainer);
+                scrollWrapper.appendChild(nextButton);
+
+                projectDiv.appendChild(scrollWrapper);
                   
                   
 
