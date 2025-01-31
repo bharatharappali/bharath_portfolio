@@ -484,8 +484,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 detailsDiv.appendChild(titleInfoDiv);
           
                 const projectInfoDiv = document.createElement('div');
-                projectInfoDiv.className = 'project-info col-md-9 col-sm-12';
+                projectInfoDiv.className = 'project-info col-md-7 col-sm-12';
                 projectInfoDiv.innerHTML = `<p class="sub-title" style="font-size: 2rem;">${project.subTitle}</p>`;
+
+                const projectYear = document.createElement('div');
+                projectYear.className = 'project-year col-md-2 col-sm-12';
+                projectYear.innerHTML = `<p class="project-year" style="font-size: 2rem;">${project.year}</p>`;
+            
           
                 // Expandable Details
                 const moreInfoButton = document.createElement('button');
@@ -548,6 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 projectInfoDiv.appendChild(showLessButton);
           
                 detailsDiv.appendChild(projectInfoDiv);
+                detailsDiv.appendChild(projectYear);
           
                 projectDiv.appendChild(detailsDiv);
                 workSection.appendChild(projectDiv);

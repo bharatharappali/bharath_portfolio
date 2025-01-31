@@ -325,6 +325,10 @@ width: 100%;
   z-index: 1;
 } */
 
+.project-details{
+  display: flex;
+  justify-content:center;
+}
  #work{
   scroll-behavior: smooth !important;
  }
