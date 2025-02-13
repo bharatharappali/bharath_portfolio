@@ -1,7 +1,7 @@
 @font-face {
   font-family: standard;
   font-style: normal;
-  src: url(/font/standard-book.otf);
+  src: url(/font/standard-book.otf);  
 }
 
 @font-face {
@@ -26,7 +26,10 @@ html {
 }
 
 body {
-  font-family: standard;
+  font-family: "Archivo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.39rem;
   line-height: 1.25;
   color: #2c2c2c;
