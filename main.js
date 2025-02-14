@@ -418,41 +418,45 @@ document.addEventListener("DOMContentLoaded", function () {
             project.carousel.forEach((item, index) => {
               const scrollItem = document.createElement("div");
               scrollItem.className = "scroll-item";
-
+          
               let mediaEle;
+              
               if (item.type === "image") {
-                // const img = document.createElement('img');
-                mediaEle = document.createElement("img");
-                mediaEle.src = item.url;
-                mediaEle.alt = item.alt;
-                mediaEle.style.width = "auto";
-                mediaEle.style.height = "100%";
-                // scrollItem.appendChild(img);
+                  mediaEle = document.createElement("img");
+                  mediaEle.src = item.url;
+                  mediaEle.alt = item.alt;
+                  mediaEle.style.width = "auto";
+                  mediaEle.style.height = "100%";
               } else if (item.type === "video") {
-                // const video = document.createElement('video');
-                mediaEle = document.createElement("video");
-                mediaEle.autoplay = true;
-                mediaEle.loop = true;
-                mediaEle.controls = false;
-                mediaEle.muted = true;
-                mediaEle.setAttribute("playsinline", "");
-                mediaEle.setAttribute("webkit-playsinline", "");
-
-                const sourceMp4 = document.createElement("source");
-                sourceMp4.src = item.url;
-                video.appendChild(sourceMp4);
-
-                const fallbackText = document.createTextNode(
-                  "Your browser does not support the video tag."
-                );
-                video.appendChild(fallbackText);
-
-                // scrollItem.appendChild(video);
+                  mediaEle = document.createElement("video");
+                  mediaEle.autoplay = true;
+                  mediaEle.loop = true;
+                  mediaEle.controls = false;
+                  mediaEle.muted = true;
+                  mediaEle.setAttribute("playsinline", "");
+                  mediaEle.setAttribute("webkit-playsinline", "");
+          
+                  const sourceMp4 = document.createElement("source");
+                  sourceMp4.src = item.url;
+                  sourceMp4.type = "video/mp4"; // Ensure correct type is set
+                  mediaEle.appendChild(sourceMp4);
+          
+                  const fallbackText = document.createTextNode(
+                      "Your browser does not support the video tag."
+                  );
+                  mediaEle.appendChild(fallbackText);
+              } else if (item.type === "iframe") {
+                  mediaEle = document.createElement("iframe");
+                  mediaEle.src = item.url;
+                  mediaEle.frameBorder = "0";
+                  mediaEle.allow = "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                  mediaEle.allowFullscreen = true;
               }
+          
               scrollItem.appendChild(mediaEle);
-
               scrollContainer.appendChild(scrollItem);
-            });
+          });
+          
 
             //   prevButton.addEventListener('click', () => {
             //     scrollContainer.scrollBy({
@@ -509,12 +513,12 @@ document.addEventListener("DOMContentLoaded", function () {
             detailsDiv.className = "project-details row mt-3";
 
             const titleInfoDiv = document.createElement("div");
-            titleInfoDiv.className = "title-info col-md-3 col-sm-12";
+            titleInfoDiv.className = "title-info col-md-2 col-sm-12";
             titleInfoDiv.innerHTML = `<p class="title" style="font-size: 2rem;">${project.title}</p>`;
             detailsDiv.appendChild(titleInfoDiv);
 
             const projectInfoDiv = document.createElement("div");
-            projectInfoDiv.className = "project-info col-md-7 col-sm-12";
+            projectInfoDiv.className = "project-info col-md-8 col-sm-12";
             projectInfoDiv.innerHTML = `<p class="sub-title" style="font-size: 2rem;">${project.subTitle}</p>`;
 
             const projectYear = document.createElement("div");
