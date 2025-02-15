@@ -112,7 +112,7 @@ br {
 .col-md-9 {
   position: relative;
   margin-right: 0;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   scroll-behavior: smooth;
 }
 
@@ -187,7 +187,7 @@ br {
 }
 
 #expSection {
-  transform: translateY(4.3%);
+  transform: translateY(15%);
   position: relative;
   width: 100%;
   padding: 0;
@@ -199,7 +199,7 @@ br {
 
 .text-section {
   position: fixed;
-  font-size: 1.39rem;
+  font-size: 2rem;
   z-index: 999;
   background-color: inherit;
   padding: 0;
@@ -216,7 +216,7 @@ br {
   flex: 20%;
   max-width: 33.3%;
   padding: 0 4px;
-  transform: translateY(3%);
+  transform: translateY(2.3%);
 }
 
 .column img {
@@ -349,6 +349,7 @@ br {
   align-items: center;
   gap: 2px;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -616,7 +617,7 @@ br {
 }
 
 #expSection .row {
-  width: 95%;
+  /* width: 95%; */
   margin: 0 auto;
   scroll-behavior: smooth !important;
 }
