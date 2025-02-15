@@ -84,6 +84,22 @@ br {
 {
   font-size: 2rem;
 }
+/* glow effect for collaboration text */
+.bio-sec > .bio__1,
+.bio_sec--2 > p
+{
+  background-image: linear-gradient(90deg, #d0ff00, #00ffff, #0400ff, #ff00aa, #ff2a00);
+  background-size: 160% 160%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glowing 3.2s linear infinite;
+}
+
+@keyframes glowing {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .bio-sec > .bio__1 {
   margin-bottom: 0;
