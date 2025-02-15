@@ -11,16 +11,22 @@
       "profileLink": "https://www.linkedin.com/in/bharath-arappali-4b0145136/",
       "clientStatus": "Up and Running",
       "carousel": [
-        { "type": "image", "url": "images/refoundry/rf--master.webp", "alt": "Image description 2" },
+        { "type": "image", "url": "images/uniworld_logistics/uw--01.jpg", "alt": "Image description 1" },
         { "type": "iframe", "url": "https://player.vimeo.com/video/1053050327","alt": "iframee Image description"},
-          { "type": "image", "url": "images/refoundry/rf--1.webp", "alt": "Image description 1" },
-          { "type": "image", "url": "images/refoundry/rf--2.webp", "alt": "Image description 2" },
-          { "type": "image", "url": "md-img/tt-11.jpg", "alt": "Image description 2" },
-          { "type": "image", "url": "md-img/mw-s--4.webp", "alt": "Image description 2" },
-          { "type": "image", "url": "images/refoundry/rf--3.webp", "alt": "Image description 3" },
-          { "type": "image", "url": "images/refoundry/rf--4.webp", "alt": "Image description 4" },
-          { "type": "image", "url": "images/refoundry/rf--5.webp", "alt": "Image description 5" },
-          { "type": "image", "url": "images/refoundry/rf--6.webp", "alt": "Image description 6" }
+          { "type": "video", "url": "images/uniworld_logistics/uw--02.mp4", "alt": "Image description 2" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--03.jpg", "alt": "Image description 3" },
+          { "type": "video", "url": "images/uniworld_logistics/uw--04.mp4", "alt": "Image description 4" },
+          { "type": "video", "url": "images/uniworld_logistics/uw--05.mp4", "alt": "Image description 5" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--06.jpg", "alt": "Image description 6" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--07.jpg", "alt": "Image description 7" },
+          { "type": "video", "url": "images/uniworld_logistics/uw--08.mp4", "alt": "Image description 8" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--09.jpg", "alt": "Image description 9" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--10.jpg", "alt": "Image description 10" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--11.jpg", "alt": "Image description 11" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--12.jpg", "alt": "Image description 12" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--13.jpg", "alt": "Image description 13" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--14.jpg", "alt": "Image description 14" },
+          { "type": "image", "url": "images/uniworld_logistics/uw--15.jpg", "alt": "Image description 15" }
       ]
     },
     {
