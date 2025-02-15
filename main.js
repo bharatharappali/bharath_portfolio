@@ -513,12 +513,12 @@ document.addEventListener("DOMContentLoaded", function () {
             detailsDiv.className = "project-details row mt-3";
 
             const titleInfoDiv = document.createElement("div");
-            titleInfoDiv.className = "title-info col-md-2 col-sm-12";
+            titleInfoDiv.className = "title-info col-md-3 col-sm-12";
             titleInfoDiv.innerHTML = `<p class="title" style="font-size: 2rem;">${project.title}</p>`;
             detailsDiv.appendChild(titleInfoDiv);
 
             const projectInfoDiv = document.createElement("div");
-            projectInfoDiv.className = "project-info col-md-8 col-sm-12";
+            projectInfoDiv.className = "project-info col-md-7 col-sm-12";
             projectInfoDiv.innerHTML = `<p class="sub-title" style="font-size: 2rem;">${project.subTitle}</p>`;
 
             const projectYear = document.createElement("div");

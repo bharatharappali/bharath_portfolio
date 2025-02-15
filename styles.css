@@ -370,7 +370,7 @@ br {
   transition: transform 0.3s ease;
   height: 100%;
   width: auto;
-  max-width: 75%;
+  /* max-width: 75%; */
   background: transparent;
 }
 
@@ -454,7 +454,7 @@ br {
   .scroll-container .scroll-item {
     height: 100%;
     width: auto;
-    max-width: 90%;
+    /* max-width: 90%; */
   }
 
   .scroll-container .scroll-item img,
@@ -632,7 +632,7 @@ br {
     /* transform: translateY(10%); */
     padding: 0.5rem 0 !important;
     height: fit-content;
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
 
   #expSection {
@@ -648,7 +648,7 @@ br {
     /* transform: translateY(10%); */
     padding: 0.5rem 0 !important;
     height: fit-content;
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
   .navbar {
     width: 98% !important;
@@ -667,7 +667,7 @@ br {
     transform: translateY(90%);
     padding: 0.5rem 0 !important;
     height: fit-content;
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
   .bio_sec--1 {
     transform: translateY(30%);
@@ -767,7 +767,7 @@ br {
     transform: translateY(90%);
     padding: 0.5rem 0 !important;
     height: fit-content;
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
   .bio_sec--1 {
     transform: translateY(30%);
