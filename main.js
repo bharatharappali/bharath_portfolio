@@ -751,3 +751,19 @@ colorChangerButton.addEventListener("click", function (event) {
   event.preventDefault();
   changeColors();
 });
+
+// timestamp
+const city = "Milan";
+const timezone = "Europe/Rome";
+
+function updateTime() {
+  fetch(`https://worldtimeapi.org/api/timezone/${timezone}`)
+      .then(response => response.json())
+      .then(data => {
+          const dateTime = new Date(data.datetime);
+          document.getElementById("timeStamp").textContent = `Milan, ${dateTime.toLocaleTimeString("it-IT")}`;
+      })
+      .catch(() => document.getElementById("timeStamp").textContent = "Time data unavailable");
+}
+updateTime();
+setInterval(updateTime, 1000);
