@@ -471,8 +471,15 @@ document.addEventListener("DOMContentLoaded", function () {
             //     });
             // });
 
-            project.carousel
-              .map((item) => {
+            const spinner = document.createElement("div");
+            spinner.className = "loading-spinner";
+            spinner.innerHTML = `<div class="spinner"></div>`;
+
+            scrollContainer.appendChild(spinner);
+
+            // Append spinner before loading items
+            Promise.resolve(
+              project.carousel.map((item) => {
                 const scrollItem = document.createElement("div");
                 scrollItem.className = "scroll-item";
 
@@ -512,11 +519,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 scrollItem.appendChild(mediaEle);
-                return scrollItem; // Returning the created element
+                return scrollItem;
               })
-              .forEach((scrollItem) => {
-                scrollContainer.appendChild(scrollItem);
-              });
+            ).then((scrollItems) => {
+              spinner.remove();
+
+              scrollItems.forEach((scrollItem) =>
+                scrollContainer.appendChild(scrollItem)
+              );
+            });
+            // .forEach((scrollItem) => {
+            //   scrollContainer.appendChild(scrollItem);
+            // });
 
             prevButton.addEventListener("click", () => {
               const itemWidth =
@@ -753,17 +767,27 @@ colorChangerButton.addEventListener("click", function (event) {
 });
 
 // timestamp
-const city = "Milan";
-const timezone = "Europe/Rome";
+// const city = "Milan";
+// const timezone = "Europe/Rome";
 
-function updateTime() {
-  fetch(`https://worldtimeapi.org/api/timezone/${timezone}`)
-      .then(response => response.json())
-      .then(data => {
-          const dateTime = new Date(data.datetime);
-          document.getElementById("timeStamp").textContent = `Milan, ${dateTime.toLocaleTimeString("it-IT")}`;
-      })
-      .catch(() => document.getElementById("timeStamp").textContent = "Time data unavailable");
+// function updateTime() {
+//   fetch(`https://worldtimeapi.org/api/timezone/${timezone}`)
+//       .then(response => response.json())
+//       .then(data => {
+//           const dateTime = new Date(data.datetime);
+//           document.getElementById("timeStamp").textContent = `Milan, ${dateTime.toLocaleTimeString("it-IT")}`;
+//       })
+//       .catch(() => document.getElementById("timeStamp").textContent = "Time data unavailable");
+// }
+// updateTime();
+// setInterval(updateTime, 1000);
+
+function updateItalyTime() {
+  const italyTime = new Date().toLocaleTimeString("it-IT", {
+    timeZone: "Europe/Rome",
+  });
+  document.getElementById("timeStamp").textContent = `Milan,  ${italyTime}`;
 }
-updateTime();
-setInterval(updateTime, 1000);
+
+updateItalyTime();
+setInterval(updateItalyTime, 1000);
