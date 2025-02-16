@@ -477,8 +477,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             scrollContainer.appendChild(spinner);
 
-            // Append spinner before loading items
-            Promise.resolve(
+            setTimeout(() => {
+              spinner.remove();
               project.carousel.map((item) => {
                 const scrollItem = document.createElement("div");
                 scrollItem.className = "scroll-item";
@@ -519,15 +519,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 scrollItem.appendChild(mediaEle);
-                return scrollItem;
-              })
-            ).then((scrollItems) => {
-              spinner.remove();
-
-              scrollItems.forEach((scrollItem) =>
-                scrollContainer.appendChild(scrollItem)
-              );
-            });
+                // return scrollItem;
+                scrollContainer.appendChild(scrollItem);
+              });
+            }, 2500);
             // .forEach((scrollItem) => {
             //   scrollContainer.appendChild(scrollItem);
             // });
