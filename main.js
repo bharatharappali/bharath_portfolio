@@ -415,48 +415,47 @@ document.addEventListener("DOMContentLoaded", function () {
             const scrollContainer = document.createElement("div");
             scrollContainer.className = "scroll-container";
 
-            project.carousel.forEach((item, index) => {
-              const scrollItem = document.createElement("div");
-              scrollItem.className = "scroll-item";
-          
-              let mediaEle;
-              
-              if (item.type === "image") {
-                  mediaEle = document.createElement("img");
-                  mediaEle.src = item.url;
-                  mediaEle.alt = item.alt;
-                  mediaEle.style.width = "auto";
-                  mediaEle.style.height = "100%";
-              } else if (item.type === "video") {
-                  mediaEle = document.createElement("video");
-                  mediaEle.autoplay = true;
-                  mediaEle.loop = true;
-                  mediaEle.controls = false;
-                  mediaEle.muted = true;
-                  mediaEle.setAttribute("playsinline", "");
-                  mediaEle.setAttribute("webkit-playsinline", "");
-          
-                  const sourceMp4 = document.createElement("source");
-                  sourceMp4.src = item.url;
-                  sourceMp4.type = "video/mp4"; // Ensure correct type is set
-                  mediaEle.appendChild(sourceMp4);
-          
-                  const fallbackText = document.createTextNode(
-                      "Your browser does not support the video tag."
-                  );
-                  mediaEle.appendChild(fallbackText);
-              } else if (item.type === "iframe") {
-                  mediaEle = document.createElement("iframe");
-                  mediaEle.src = item.url;
-                  mediaEle.frameBorder = "0";
-                  mediaEle.allow = "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-                  mediaEle.allowFullscreen = true;
-              }
-          
-              scrollItem.appendChild(mediaEle);
-              scrollContainer.appendChild(scrollItem);
-          });
-          
+            //   project.carousel.forEach((item, index) => {
+            //     const scrollItem = document.createElement("div");
+            //     scrollItem.className = "scroll-item";
+
+            //     let mediaEle;
+
+            //     if (item.type === "image") {
+            //         mediaEle = document.createElement("img");
+            //         mediaEle.src = item.url;
+            //         mediaEle.alt = item.alt;
+            //         mediaEle.style.width = "auto";
+            //         mediaEle.style.height = "100%";
+            //     } else if (item.type === "video") {
+            //         mediaEle = document.createElement("video");
+            //         mediaEle.autoplay = true;
+            //         mediaEle.loop = true;
+            //         mediaEle.controls = false;
+            //         mediaEle.muted = true;
+            //         mediaEle.setAttribute("playsinline", "");
+            //         mediaEle.setAttribute("webkit-playsinline", "");
+
+            //         const sourceMp4 = document.createElement("source");
+            //         sourceMp4.src = item.url;
+            //         sourceMp4.type = "video/mp4"; // Ensure correct type is set
+            //         mediaEle.appendChild(sourceMp4);
+
+            //         const fallbackText = document.createTextNode(
+            //             "Your browser does not support the video tag."
+            //         );
+            //         mediaEle.appendChild(fallbackText);
+            //     } else if (item.type === "iframe") {
+            //         mediaEle = document.createElement("iframe");
+            //         mediaEle.src = item.url;
+            //         mediaEle.frameBorder = "0";
+            //         mediaEle.allow = "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            //         mediaEle.allowFullscreen = true;
+            //     }
+
+            //     scrollItem.appendChild(mediaEle);
+            //     scrollContainer.appendChild(scrollItem);
+            // });
 
             //   prevButton.addEventListener('click', () => {
             //     scrollContainer.scrollBy({
@@ -471,6 +470,53 @@ document.addEventListener("DOMContentLoaded", function () {
             //         behavior: 'smooth'
             //     });
             // });
+
+            project.carousel
+              .map((item) => {
+                const scrollItem = document.createElement("div");
+                scrollItem.className = "scroll-item";
+
+                let mediaEle;
+
+                if (item.type === "image") {
+                  mediaEle = document.createElement("img");
+                  mediaEle.src = item.url;
+                  mediaEle.alt = item.alt;
+                  mediaEle.style.width = "auto";
+                  mediaEle.style.height = "100%";
+                } else if (item.type === "video") {
+                  mediaEle = document.createElement("video");
+                  mediaEle.autoplay = true;
+                  mediaEle.loop = true;
+                  mediaEle.controls = false;
+                  mediaEle.muted = true;
+                  mediaEle.setAttribute("playsinline", "");
+                  mediaEle.setAttribute("webkit-playsinline", "");
+
+                  const sourceMp4 = document.createElement("source");
+                  sourceMp4.src = item.url;
+                  sourceMp4.type = "video/mp4";
+                  mediaEle.appendChild(sourceMp4);
+
+                  const fallbackText = document.createTextNode(
+                    "Your browser does not support the video tag."
+                  );
+                  mediaEle.appendChild(fallbackText);
+                } else if (item.type === "iframe") {
+                  mediaEle = document.createElement("iframe");
+                  mediaEle.src = item.url;
+                  mediaEle.frameBorder = "0";
+                  mediaEle.allow =
+                    "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                  mediaEle.allowFullscreen = true;
+                }
+
+                scrollItem.appendChild(mediaEle);
+                return scrollItem; // Returning the created element
+              })
+              .forEach((scrollItem) => {
+                scrollContainer.appendChild(scrollItem);
+              });
 
             prevButton.addEventListener("click", () => {
               const itemWidth =
