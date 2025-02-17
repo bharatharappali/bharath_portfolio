@@ -26,7 +26,8 @@ html {
 }
 
 body {
-  font-family: 'Standard', Helvetica, sans-serif;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 435;
   font-size: 1.4rem;
   line-height: 1.25;
   color: #2c2c2c;
