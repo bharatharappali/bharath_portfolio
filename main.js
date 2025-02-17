@@ -786,3 +786,10 @@ function updateItalyTime() {
 
 updateItalyTime();
 setInterval(updateItalyTime, 1000);
+
+function updateDate() {
+  const date = new Date();
+  const options = { month: 'short', year: 'numeric' };
+  document.getElementById("dateStamp").textContent = `last update: ${date.toLocaleDateString('en-US', options)}`;
+}
+updateDate();
