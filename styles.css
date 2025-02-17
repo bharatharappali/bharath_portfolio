@@ -1,7 +1,7 @@
 @font-face {
   font-family: standard;
   font-style: normal;
-  src: url(/font/standard-book.otf);
+  src: url(/font/standard-book-webfont.woff);
 }
 
 @font-face {
@@ -27,7 +27,7 @@ html {
 
 body {
   font-family: 'Standard';
-  font-size: 1.39rem;
+  font-size: 1.41rem;
   line-height: 1.25;
   color: #2c2c2c;
   max-width: 100vw;
