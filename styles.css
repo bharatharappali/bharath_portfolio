@@ -1,11 +1,11 @@
 @font-face {
-  font-family: standard;
+  font-family: std grotesk;
   font-style: normal;
   src: url(/font/standard-book-webfont.ttf);
 }
 
 @font-face {
-  font-family: standard;
+  font-family: std grotesk;
   font-style: italic;
   src: url(/font/standard-book-italic.otf);
 }
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  font-family: 'standard', Helvetica, sans-serif;
+  font-family: 'std grotesk', Helvetica, sans-serif;
   font-size: 1.41rem;
   line-height: 1.25;
   color: #2c2c2c;
