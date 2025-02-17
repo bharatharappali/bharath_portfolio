@@ -842,11 +842,11 @@ p {
     position: relative;
   }
 
-  .title {
+  .title, .project-year {
     padding-bottom: 1.3rem;
     font-size: 1.7rem !important;
   }
-  .sub-title {
+  .sub-title, .project-year {
     font-size: 1.7rem !important;
   }
   .description-info {

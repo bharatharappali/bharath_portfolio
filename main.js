@@ -578,7 +578,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const projectYear = document.createElement("div");
             projectYear.className = "project-year col-md-2 col-sm-12";
-            projectYear.innerHTML = `<p class="project-year" style="font-size: 2rem;">${project.year}</p>`;
+            projectYear.innerHTML = `<p style="font-size: 2rem;">${project.year}</p>`;
 
             // Expandable Details
             const moreInfoButton = document.createElement("button");
@@ -649,8 +649,8 @@ document.addEventListener("DOMContentLoaded", function () {
             projectInfoDiv.appendChild(expandableDiv);
             projectInfoDiv.appendChild(showLessButton);
 
-            detailsDiv.appendChild(projectInfoDiv);
             detailsDiv.appendChild(projectYear);
+            detailsDiv.appendChild(projectInfoDiv);
 
             projectDiv.appendChild(detailsDiv);
             workSection.appendChild(projectDiv);
