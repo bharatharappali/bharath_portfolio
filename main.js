@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const textSection = document.createElement("div");
       textSection.className = "text-section";
       textSection.textContent =
-        "An ensemble of my best works, explorations, WIPs and more...";
+        "Experiments and failure are a part and parcel of any project, Here's an archive of WIPs, BTS progresses, fuck-ups and more ";
       textSection.style.borderBottom = "1px solid black";
       // exp.appendChild(textSection)
       exp.insertBefore(textSection, exp.firstChild);
