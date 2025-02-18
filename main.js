@@ -578,18 +578,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const projectYear = document.createElement("div");
             projectYear.className = "project-year col-md-2 col-sm-12";
-            projectYear.innerHTML = `<p style="font-size: 2rem;">${project.year}</p>`;
+            projectYear.innerHTML = `<p>${project.year}</p>`;
 
             // Expandable Details
             const moreInfoButton = document.createElement("button");
-            moreInfoButton.className = "btn mt-2";
+            moreInfoButton.className = "btn mt-5";
             moreInfoButton.innerHTML =
-              'More Info <span style="font-size: 8px;">▼</span>';
+              'More Info<span class="material-symbols-outlined"> unfold_more </span>';
+            moreInfoButton.style.display = "flex";
+            moreInfoButton.style.alignItems = "center"
             moreInfoButton.style.border = "none";
             moreInfoButton.style.background = "none";
             moreInfoButton.style.color = "inherit";
             moreInfoButton.style.cursor = "pointer";
             moreInfoButton.style.fontSize = "1.39rem";
+            moreInfoButton.style.padding = "0";
 
             const expandableDiv = document.createElement("div");
             expandableDiv.className = "expandable-info row mt-3 pt-5";
@@ -623,25 +626,28 @@ document.addEventListener("DOMContentLoaded", function () {
             expandableDiv.appendChild(additionalInfoDiv);
 
             const showLessButton = document.createElement("button");
-            showLessButton.className = "btn mt-2";
+            showLessButton.className = "btn mt-5";
             showLessButton.innerHTML =
-              'Show Less <span style="font-size: 8px;">▲</span>';
+              'Less Info<span class="material-symbols-outlined"> unfold_less </span>';
+            showLessButton.style.display = "flex";
+            showLessButton.style.alignItems = "center"
             showLessButton.style.border = "none";
             showLessButton.style.background = "none";
             showLessButton.style.color = "inherit";
             showLessButton.style.cursor = "pointer";
             showLessButton.style.display = "none";
             showLessButton.style.fontSize = "1.39rem";
+            showLessButton.style.padding = "0";
 
             moreInfoButton.addEventListener("click", () => {
               expandableDiv.style.display = "flex";
               moreInfoButton.style.display = "none";
-              showLessButton.style.display = "block";
+              showLessButton.style.display = "flex";
             });
 
             showLessButton.addEventListener("click", () => {
               expandableDiv.style.display = "none";
-              moreInfoButton.style.display = "block";
+              moreInfoButton.style.display = "flex";
               showLessButton.style.display = "none";
             });
 
@@ -781,7 +787,7 @@ function updateItalyTime() {
   const italyTime = new Date().toLocaleTimeString("it-IT", {
     timeZone: "Europe/Rome",
   });
-  document.getElementById("timeStamp").textContent = `Milan,  ${italyTime}`;
+  document.getElementById("timeStamp").textContent = `Milan [IT]: ${italyTime}`;
 }
 
 updateItalyTime();
@@ -790,6 +796,6 @@ setInterval(updateItalyTime, 1000);
 function updateDate() {
   const date = new Date();
   const options = { month: 'short', year: 'numeric' };
-  document.getElementById("dateStamp").textContent = `last update: ${date.toLocaleDateString('en-US', options)}`;
+  document.getElementById("dateStamp").textContent = `last updated on ${date.toLocaleDateString('en-US', options)}`;
 }
 updateDate();
