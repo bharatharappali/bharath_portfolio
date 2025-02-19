@@ -1,19 +1,5 @@
 "use strict";
 
-// function copyEmailAndOpen() {
-//   const email = "bharatharappali@gmail.com";
-//   navigator.clipboard.writeText(email).then(() => {
-//     window.location.href = `mailto:${email}`;
-//     // Display the copy message
-//     const messageElement = document.getElementById("copy-message");
-//     messageElement.style.display = "block";
-//     // Hide the message after 2 seconds
-//     setTimeout(() => {
-//       messageElement.style.display = "none";
-//     }, 2000);
-//   }).catch((err) => console.error("Failed to copy email:", err));
-// }
-
 function copyEmailAndOpen() {
   const email = "bharatharappali@gmail.com";
   navigator.clipboard
@@ -37,22 +23,6 @@ function mailto() {
     })
     .catch((err) => console.error("Failed to Redirect email:", err));
 }
-// document.addEventListener("DOMContentLoaded", function () {
-//   const bioSection = document.getElementById("bioSection");
-//   const workSection = document.getElementById("work");
-
-//   function toggleBioSection() {
-//     if (window.innerWidth > 576) {
-//       bioSection.style.display = "none";
-//     }
-//   }
-
-//   // Run on initial load
-//   toggleBioSection();
-
-//   // Run on window resize
-//   window.addEventListener("resize", toggleBioSection);
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".nav-link").forEach((link) => {
@@ -85,47 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   fetch('experiment.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     const exp = document.getElementById('expSection');
-//     const columns = document.querySelectorAll('.column');
-
-//     const textSection = document.createElement('div');
-//     textSection.className = 'text-section align-items-center mb-3 pb-2';
-//     textSection.textContent = 'An ensemble of my best works, fuck-up\'s, explorations, WIPs and more...';
-
-//     exp.insertBefore(textSection, exp.firstChild);
-
-//     data.forEach((item, index) => {
-//       if (item.type === 'image') {
-//               const img = document.createElement('img');
-//               img.src = item.url;
-//               img.alt = item.alt;
-
-//               const columnIndex = index % columns.length;
-//               columns[columnIndex].appendChild(img);
-//           } else if (item.type === 'video') {
-//               const video = document.createElement('video');
-//               video.src = item.url;
-//               video.controls = true;
-//               video.loop = true;
-//               video.autoplay = true;
-//               video.setAttribute('preload', 'auto');
-//               video.setAttribute('playsinline', '');
-//               video.setAttribute('webkit-playsinline', '');
-//               // video.setAttribute('loop', '');
-
-//               const columnIndex = index % columns.length;
-//               columns[columnIndex].appendChild(video);
-//           }
-//       });
-
-//   })
-//   .catch(error => console.error('Error fetching data:', error));
-// });
 document.addEventListener("DOMContentLoaded", function () {
   fetch("experiment.json")
     .then((response) => response.json())
@@ -319,86 +248,6 @@ document.addEventListener("DOMContentLoaded", function () {
             projectDiv.style.paddingBottom = "6px";
             projectDiv.style.marginBottom = "20px";
 
-            // Carousel
-            // const carouselId = `carouselExampleIndicators-${projectIndex}`;
-            // const carouselDiv = document.createElement('div');
-            // carouselDiv.className = 'carousel slide carousel-fade col-12';
-            // carouselDiv.id = carouselId;
-            // carouselDiv.setAttribute('data-bs-ride', 'carousel');
-
-            // const indicatorsDiv = document.createElement('div');
-            // indicatorsDiv.className = 'carousel-indicators';
-            // carouselDiv.appendChild(indicatorsDiv);
-
-            // const innerDiv = document.createElement('div');
-            // innerDiv.className = 'carousel-inner';
-            // carouselDiv.appendChild(innerDiv);
-
-            // const prevButton = document.createElement('button');
-            // prevButton.className = 'carousel-control-prev';
-            // prevButton.type = 'button';
-            // prevButton.setAttribute('data-bs-target', `#${carouselId}`);
-            // prevButton.setAttribute('data-bs-slide', 'prev');
-            // prevButton.innerHTML = `
-            //   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            //   <span class="visually-hidden">Previous</span>`;
-            // carouselDiv.appendChild(prevButton);
-
-            // const nextButton = document.createElement('button');
-            // nextButton.className = 'carousel-control-next';
-            // nextButton.type = 'button';
-            // nextButton.setAttribute('data-bs-target', `#${carouselId}`);
-            // nextButton.setAttribute('data-bs-slide', 'next');
-            // nextButton.innerHTML = `
-            //   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            //   <span class="visually-hidden">Next</span>`;
-            // carouselDiv.appendChild(nextButton);
-
-            // projectDiv.appendChild(carouselDiv);
-
-            // // Adding slides to carousel
-            // project.carousel.forEach((item, index) => {
-            //   const carouselItem = document.createElement('div');
-            //   carouselItem.className = 'carousel-item' + (index === 0 ? ' active' : '');
-            //   carouselItem.style.transition = 'opacity 0.5s ease-in-out';
-
-            //   if (item.type === 'image') {
-            //     const img = document.createElement('img');
-            //     img.src = item.url;
-            //     img.alt = item.alt;
-            //     img.className = 'd-block w-100';
-            //     carouselItem.appendChild(img);
-            //   } else if (item.type === 'video') {
-            //     const video = document.createElement('video');
-            //     video.controls = true;
-            //     video.loop = true;
-            //     video.autoplay = true;
-            //     video.setAttribute('playsinline', '');
-            //     video.setAttribute('webkit-playsinline', '');
-            //     video.className = 'd-block w-100';
-
-            //     const sourceMp4 = document.createElement('source');
-            //     sourceMp4.src = item.url;
-            //     video.appendChild(sourceMp4);
-
-            //     const fallbackText = document.createTextNode('Your browser does not support the video tag.');
-            //     video.appendChild(fallbackText);
-
-            //     carouselItem.appendChild(video);
-            //   }
-
-            //   innerDiv.appendChild(carouselItem);
-
-            //   const indicatorButton = document.createElement('button');
-            //   indicatorButton.type = 'button';
-            //   indicatorButton.setAttribute('data-bs-target', `#${carouselId}`);
-            //   indicatorButton.setAttribute('data-bs-slide-to', index);
-            //   if (index === 0) indicatorButton.className = 'active';
-            //   indicatorButton.setAttribute('aria-current', 'true');
-            //   indicatorButton.setAttribute('aria-label', `Slide ${index + 1}`);
-            //   indicatorsDiv.appendChild(indicatorButton);
-            // });
-
             const scrollWrapper = document.createElement("div");
             scrollWrapper.className = "scroll-wrapper";
             scrollWrapper.style.position = "relative";
@@ -414,62 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Create the scrollable container
             const scrollContainer = document.createElement("div");
             scrollContainer.className = "scroll-container";
-
-            //   project.carousel.forEach((item, index) => {
-            //     const scrollItem = document.createElement("div");
-            //     scrollItem.className = "scroll-item";
-
-            //     let mediaEle;
-
-            //     if (item.type === "image") {
-            //         mediaEle = document.createElement("img");
-            //         mediaEle.src = item.url;
-            //         mediaEle.alt = item.alt;
-            //         mediaEle.style.width = "auto";
-            //         mediaEle.style.height = "100%";
-            //     } else if (item.type === "video") {
-            //         mediaEle = document.createElement("video");
-            //         mediaEle.autoplay = true;
-            //         mediaEle.loop = true;
-            //         mediaEle.controls = false;
-            //         mediaEle.muted = true;
-            //         mediaEle.setAttribute("playsinline", "");
-            //         mediaEle.setAttribute("webkit-playsinline", "");
-
-            //         const sourceMp4 = document.createElement("source");
-            //         sourceMp4.src = item.url;
-            //         sourceMp4.type = "video/mp4"; // Ensure correct type is set
-            //         mediaEle.appendChild(sourceMp4);
-
-            //         const fallbackText = document.createTextNode(
-            //             "Your browser does not support the video tag."
-            //         );
-            //         mediaEle.appendChild(fallbackText);
-            //     } else if (item.type === "iframe") {
-            //         mediaEle = document.createElement("iframe");
-            //         mediaEle.src = item.url;
-            //         mediaEle.frameBorder = "0";
-            //         mediaEle.allow = "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-            //         mediaEle.allowFullscreen = true;
-            //     }
-
-            //     scrollItem.appendChild(mediaEle);
-            //     scrollContainer.appendChild(scrollItem);
-            // });
-
-            //   prevButton.addEventListener('click', () => {
-            //     scrollContainer.scrollBy({
-            //         left: -300,
-            //         behavior: 'smooth'
-            //     });
-            // });
-
-            // nextButton.addEventListener('click', () => {
-            //     scrollContainer.scrollBy({
-            //         left: 300,
-            //         behavior: 'smooth'
-            //     });
-            // });
 
             const spinner = document.createElement("div");
             spinner.className = "loading-spinner";
@@ -773,20 +566,6 @@ colorChangerButton.addEventListener("click", function (event) {
 });
 
 // timestamp
-// const city = "Milan";
-// const timezone = "Europe/Rome";
-
-// function updateTime() {
-//   fetch(`https://worldtimeapi.org/api/timezone/${timezone}`)
-//       .then(response => response.json())
-//       .then(data => {
-//           const dateTime = new Date(data.datetime);
-//           document.getElementById("timeStamp").textContent = `Milan, ${dateTime.toLocaleTimeString("it-IT")}`;
-//       })
-//       .catch(() => document.getElementById("timeStamp").textContent = "Time data unavailable");
-// }
-// updateTime();
-// setInterval(updateTime, 1000);
 
 function updateItalyTime() {
   const italyTime = new Date().toLocaleTimeString("it-IT", {
