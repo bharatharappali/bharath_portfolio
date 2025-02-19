@@ -511,10 +511,15 @@ document.addEventListener("DOMContentLoaded", function () {
                   mediaEle.appendChild(fallbackText);
                 } else if (item.type === "iframe") {
                   mediaEle = document.createElement("iframe");
-                  mediaEle.src = item.url;
+
+                  let url = new URL(item.url);
+                  url.searchParams.set("autoplay", "1");
+                  url.searchParams.set("loop", "1");
+
+                  mediaEle.src = url.toString();
                   mediaEle.frameBorder = "0";
                   mediaEle.allow =
-                    "loop; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
                   mediaEle.allowFullscreen = true;
                 }
 
@@ -586,7 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
             moreInfoButton.innerHTML =
               'More Info<span class="material-symbols-outlined"> unfold_more </span>';
             moreInfoButton.style.display = "flex";
-            moreInfoButton.style.alignItems = "center"
+            moreInfoButton.style.alignItems = "center";
             moreInfoButton.style.border = "none";
             moreInfoButton.style.background = "none";
             moreInfoButton.style.color = "inherit";
@@ -630,7 +635,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showLessButton.innerHTML =
               'Less Info<span class="material-symbols-outlined"> unfold_less </span>';
             showLessButton.style.display = "flex";
-            showLessButton.style.alignItems = "center"
+            showLessButton.style.alignItems = "center";
             showLessButton.style.border = "none";
             showLessButton.style.background = "none";
             showLessButton.style.color = "inherit";
@@ -795,7 +800,12 @@ setInterval(updateItalyTime, 1000);
 
 function updateDate() {
   const date = new Date();
-  const options = { month: 'short', year: 'numeric' };
-  document.getElementById("dateStamp").textContent = `last updated on ${date.toLocaleDateString('en-US', options)}`;
+  const options = { month: "short", year: "numeric" };
+  document.getElementById(
+    "dateStamp"
+  ).textContent = `last updated on ${date.toLocaleDateString(
+    "en-US",
+    options
+  )}`;
 }
 updateDate();

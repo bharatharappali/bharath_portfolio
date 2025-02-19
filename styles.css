@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: "Inter", Helvetica, sans-serif;
   font-weight: 435;
   font-size: 1.4rem;
   line-height: 1.25;
@@ -726,9 +726,6 @@ p {
     height: fit-content;
     font-size: 2rem !important;
   }
-  .bio_sec--1 {
-    transform: translateY(30%);
-  }
 }
 
 @media (max-width: 767.98px) {
@@ -738,25 +735,11 @@ p {
   #navbarSupportedContent {
     width: 90%;
   }
-  /* .filter-section{
-    transform: translateY(-30%);
-    font-size: 65%;
-  } */
+
   .filter-section {
     transform: translateY(110%);
     font-size: 65%;
   }
-
-  /* .color-btn__icon {
-    display: block;
-  } */
-  /* .color-btn {
-    display: none;
-  } */
-
-  /* #bioSection {
-    display: none;
-  } */
 
   .lightbox .controls {
     font-size: 1.5rem;
@@ -829,6 +812,9 @@ p {
   .bio_sec--1 {
     transform: translateY(30%);
   }
+  .bio_sec--2 {
+    transform: translateY(30%);
+  }
   .filter-section {
     display: none !important;
   }
@@ -843,11 +829,13 @@ p {
     position: relative;
   }
 
-  .title, .project-year {
+  .title,
+  .project-year {
     padding-bottom: 1.3rem;
     font-size: 1.7rem !important;
   }
-  .sub-title, .project-year {
+  .sub-title,
+  .project-year {
     font-size: 1.7rem !important;
   }
   .description-info {
